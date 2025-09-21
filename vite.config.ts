@@ -5,7 +5,7 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/wanderwise_ai_frontend/",   // ✅ Required for GitHub Pages
+  base: "/wanderwise_ai_frontend/",   // ✅ required for GitHub Pages
   server: {
     host: "::",
     port: 8080,
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "dist",   // ✅ Must be "dist" for gh-pages
+    outDir: "dist",   // ✅ must be "dist" for gh-pages
   },
   plugins: [react(), expressPlugin()],
   resolve: {
@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => ({
 function expressPlugin(): Plugin {
   return {
     name: "express-plugin",
-    apply: "serve", // Only apply during development
+    apply: "serve",
     configureServer(server) {
       const app = createServer();
       server.middlewares.use(app);
